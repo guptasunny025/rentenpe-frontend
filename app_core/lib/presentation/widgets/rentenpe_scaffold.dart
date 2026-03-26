@@ -1,3 +1,4 @@
+import 'package:app_core/presentation/theme/app_theme_extensions.dart';
 import 'package:flutter/material.dart';
 
 class RentenPeScaffold extends StatelessWidget {
@@ -19,16 +20,16 @@ class RentenPeScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // Dark theme
+      backgroundColor: context.appTheme.primaryColor,
       appBar: (title != null || leading != null || actionWidgets != null)
           ? AppBar(
-              backgroundColor: Colors.black,
+              backgroundColor: context.appTheme.primaryColor,
               title: title != null ? Text(title!) : null,
               leading: leading,
               actions: actionWidgets,
             )
           : null,
-      body: body,
+      body: SafeArea(child: body),
       bottomNavigationBar: bottomNavigationBar,
     );
   }
